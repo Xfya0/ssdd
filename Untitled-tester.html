@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة جانبية مع زر رجوع</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- زر الضغط لفتح القائمة -->
+<button id="menuButton">إظهار القائمة</button>
+
+<!-- القائمة الجانبية -->
+<div id="sideMenu" class="side-menu">
+    <!-- زر الرجوع لإغلاق القائمة -->
+    <button id="closeButton" class="close-btn"><img src="C:\Users\Administrator\Desktop\maPro\icons8-back-50.png" alt="back" width="14px"></button>
+    
+    <!-- محتوى القائمة -->
+    <ul>
+        <li>الرئيسية</li>
+        <li>العملاء</li>
+        <li>التقارير</li>
+        <li>المصادر</li>
+    </ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    /* زر القائمة */
+    #menuButton {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+    /* القائمة الجانبية */
+    .side-menu {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 20px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    }
+
+    /* زر الرجوع */
+    .close-btn {
+        background-color: #FF4C4C;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 16px;
+    }
+
+    /* تنسيق قائمة العناصر */
+    .side-menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        margin-top: 60px; /* إضافة مسافة أسفل زر الرجوع */
+    }
+
+    .side-menu ul li {
+        padding: 15px 20px;
+        text-align: right;
+        color: white;
+        border-bottom: 1px solid #444;
+    }
+
+    .side-menu ul li:hover {
+        background-color: #575757;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // الحصول على العناصر
+    const menuButton = document.getElementById('menuButton');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeButton = document.getElementById('closeButton');
+
+    // إظهار القائمة عند الضغط على زر القائمة
+    menuButton.addEventListener('click', function() {
+        sideMenu.style.right = '0';
+    });
+
+    // إخفاء القائمة عند الضغط على زر الرجوع
+    closeButton.addEventListener('click', function() {
+        sideMenu.style.right = '-250px';
+    });
+</script>
